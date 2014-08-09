@@ -1,0 +1,4 @@
+admin_authors:
+    resource: "@AdminAuthorsBundle/Resources/config/routing.yml"
+    prefix:   /
+
