@@ -1,0 +1,7 @@
+parameters:
+#    fast_forward_manage.example.class: FastForward\ManageBundle\Example
+
+services:
+#    fast_forward_manage.example:
+#        class: %fast_forward_manage.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

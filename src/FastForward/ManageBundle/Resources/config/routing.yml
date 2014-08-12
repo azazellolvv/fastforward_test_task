@@ -1,0 +1,7 @@
+fast_forward_manage_homepage:
+    path:     /manage/{object_name}
+    defaults: { _controller: FastForwardManageBundle:Default:index }
+    
+fast_forward_manage_add:
+    path:     /manage/{object_name}
+    defaults: { _controller: FastForwardManageBundle:Default:add }

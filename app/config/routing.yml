@@ -1,4 +1,4 @@
-admin_authors:
-    resource: "@AdminAuthorsBundle/Resources/config/routing.yml"
+fast_forward_manage:
+    resource: "@FastForwardManageBundle/Resources/config/routing.yml"
     prefix:   /
 

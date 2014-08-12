@@ -1,3 +1,0 @@
-admin_authors_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminAuthorsBundle:Default:index }

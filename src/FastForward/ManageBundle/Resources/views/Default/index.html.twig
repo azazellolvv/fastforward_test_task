@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crossroad Publishing</title>
+        <link href="{{ asset("bundles/fastforwardmanage/css/bootstrap.css") }}" rel="stylesheet">
+        <link href="{{ asset("bundles/fastforwardmanage/css/font-awesome.css") }}" rel="stylesheet">
+        <link href="{{ asset("bundles/fastforwardmanage/css/custom.css") }}" rel="stylesheet">        
+        <link href="{{ asset("bundles/fastforwardmanage/css/manage.css") }}" rel="stylesheet">        
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- Header -->
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0;">
+                <!-- Header - Navbar -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Crossroad Publishing</a>
+                </div>
+                <!-- Header - User -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> Admin Name <i class="fa fa-caret-down dropdown-user-arrow"></i></a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Header - Side Menu -->
+                <div class="navbar-default navbar-static-side" role="navigation">
+                    <div class="sidebar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> <strong>Content Management</strong> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="#">Manage Topics</a></li>
+                                    <li><a href="#">Manage Books</a></li>
+                                    <li><a href="#">Manage Authors</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> <strong>Stream Management</strong> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="#">Manage Streams</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> <strong>User Management</strong> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="#">Manage Users</a></li>
+                                    <li><a href="#">Manage Roles</a></li>
+                                    <li><a href="#">Manage Permissions</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Body -->
+            <div id="page-wrapper">
+                <!-- Section Title -->
+                <div class="row">
+                    <div class="col-lg-12"><h1 class="page-header">Section Title</h1></div>
+                </div>
+                <!-- Table -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">DataTables Advanced Tables</div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                {% for header in header_list %}
+                                                <th>{{ header }}</th>
+                                                {% endfor %}	
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for row in list %}                                                
+                                            <tr class="">
+                                                {% for value in row  %}
+                                                <td>{{ value }}</td>
+                                                {% endfor %}
+                                                <td>
+                                                    <a href="javascript: updateAuthors({{row['id']}})">Update</a>
+                                                    <a href="javascript: deleteAuthors({{row['id']}})">Delete</a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}                                          
+                                        </tbody>
+                                    </table>
+                                        
+                                        <button onclick="add()">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="div_form" style="display: none">
+            <form id="authors_form" action="{{ path('fast_forward_manage_add', {'object_name': object_name}) }}" method="post" {{ form_enctype(form) }}>
+                {{ form_widget(form) }}
+
+                <input type="submit" />
+            </form>            
+        </div>
+                                        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{{ asset("bundles/fastforwardmanage/js/bootstrap.min.js") }}"></script>
+        <script src="{{ asset("bundles/fastforwardmanage/js/custom.min.js") }}"></script>
+
+        <script src="{{ asset("bundles/fastforwardmanage/js/jquery.dataTables.min.js") }}"></script>
+        <script src="{{ asset("bundles/fastforwardmanage/js/dataTables.bootstrap.min.js") }}"></script>
+        <script src="{{ asset("bundles/fastforwardmanage/js/manage.js") }}"></script>
+
+        <script>
+            
+            var object_name = '{{object_name}}';
+            
+            $(document).ready(function()
+            {
+                $('#dataTables-example').dataTable();
+            });
+        </script>
+    </body>
+</html>

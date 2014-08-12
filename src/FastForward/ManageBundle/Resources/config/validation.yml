@@ -1,0 +1,18 @@
+FastForward\ManageBundle\Entity\AuthorsData:     
+  properties:    
+    firstName:
+      - NotBlank: {message: Your name cannot be empty}
+      - Length: {min: 3, minMessage:  Your name has to be at least 3 characters long}
+      - Regex: {pattern: "/^[a-zA-Z\s]+$/", message: Your first name is wrong}
+    lastName:
+      - NotBlank: {message: Your name cannot be empty}
+      - Length: {min: 3, minMessage:  Your name has to be at least 3 characters long}
+      - Regex: {pattern: "/^[a-zA-Z\s]+$/", message: Your last name is wrong}
+    midle_name:      
+      - Regex: {pattern: "/^[a-zA-Z\s]+$/", message: Your midle name is wrong}
+    namePrefix:     
+      - Regex: {pattern: "/^[a-zA-Z\s]+$/", message: Your name is wrong}
+    nameSuffix:      
+      - Regex: {pattern: "/^[a-zA-Z\s]+$/", message: Your name is wrong}
+    
+      

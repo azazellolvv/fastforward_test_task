@@ -1,6 +1,6 @@
 <?php
 
-namespace FastForward\Bundle\Tests\Controller;
+namespace FastForward\ManageBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
